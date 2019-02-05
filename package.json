@@ -1,6 +1,6 @@
 {
   "name": "rx-script-loader",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Dynamically loading external JavaScript files",
   "main": "dist/rx-script-loader.js",
   "scripts": {
@@ -24,5 +24,9 @@
     "webpack-dev-server": "^3.1.14",
     "webpack-merge": "^4.2.1"
   },
-  "keywords": ["script", "scripts", "load", "dynamic"]
+  "keywords": ["script", "scripts", "load", "dynamic"],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sergfa/rx-script-loader.git"
+  }
 }
