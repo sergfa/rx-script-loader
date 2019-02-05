@@ -1,0 +1,27 @@
+{
+  "name": "rx-script-loader",
+  "version": "1.0.0",
+  "description": "Dynamically loading external JavaScript files",
+  "main": "dist/rx-script-loader.js",
+  "scripts": {
+    "webpack": "webpack",
+    "webpack-dev-server": "webpack-dev-server",
+    "build:dev": "npm run webpack-dev-server -- --env.mode development",
+    "build:prod": "npm run webpack -- --env.mode production"
+  },
+  "author": "Sergey Fayman <sergfa@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "rxjs": "^6.3.3"
+  },
+  "devDependencies": {
+    "html-webpack-plugin": "^3.2.0",
+    "rxjs-tslint": "^0.1.6",
+    "ts-loader": "^5.3.3",
+    "typescript": "^3.2.2",
+    "webpack": "^4.28.4",
+    "webpack-cli": "^3.2.1",
+    "webpack-dev-server": "^3.1.14",
+    "webpack-merge": "^4.2.1"
+  }
+}
