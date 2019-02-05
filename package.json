@@ -1,6 +1,6 @@
 {
   "name": "rx-script-loader",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Dynamically loading external JavaScript files",
   "main": "dist/rx-script-loader.js",
   "scripts": {
