@@ -3,3 +3,4 @@ interface Script {
     defer?: boolean;
     async?: boolean;
 }
+export {Script};

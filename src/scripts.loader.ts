@@ -1,5 +1,6 @@
 import { Observable, from, Observer, BehaviorSubject } from "rxjs";
 import { map, filter, reduce, switchMap, mergeAll, shareReplay } from "rxjs/operators";
+import { Script } from './script.model';
 
 interface ScriptLoadResponse {
   src: string;
@@ -62,23 +63,34 @@ const getDocumentScripts = (): Observable<string[]> => {
 
 const loadScript = (script: Script): Observable<ScriptLoadResponse> => {
   return Observable.create((observer: Observer<ScriptLoadResponse>) => {
-    const scriptElm = document.createElement("script");
+    const scriptElm = document.createElement("script") as any;
     document.head.appendChild(scriptElm);
 
-    scriptElm.onload = () => {
-      observer.next({ src: script.src, success: true });
-      observer.complete();
-    };
-    scriptElm.onerror = () => {
-      observer.next({ src: script.src, success: false });
-      observer.complete();
-    };
+    if (scriptElm.readyState) {
+      // IE
+      scriptElm.onreadystatechange = () => {
+        if (scriptElm.readyState === 'loaded' || scriptElm.readyState === 'complete') {
+          observer.next({ src: script.src, success: true });
+        }
+      };
+    }
+    else {
+      scriptElm.onload = () => {
+        observer.next({ src: script.src, success: true });
+        observer.complete();
+      };
+      scriptElm.onerror = () => {
+        observer.next({ src: script.src, success: false });
+        observer.complete();
+      };
+    }
     scriptElm.src = script.src;
     scriptElm.async = script.async !== undefined ? script.async : false;
     scriptElm.defer = script.defer !== undefined ? script.defer : false;
     return () => {
       delete scriptElm.onload;
       delete scriptElm.onerror;
+      delete scriptElm.onreadystatechange;
     };
   });
 };

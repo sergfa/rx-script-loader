@@ -1,1 +1,1 @@
-export * from './scripts.loader'
+export * from './scripts.loader';

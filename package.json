@@ -1,13 +1,14 @@
 {
   "name": "rx-script-loader",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Dynamically loading external JavaScript files",
   "main": "dist/rx-script-loader.js",
   "scripts": {
     "webpack": "webpack",
     "webpack-dev-server": "webpack-dev-server",
     "build:dev": "npm run webpack-dev-server -- --env.mode development",
-    "build:prod": "npm run webpack -- --env.mode production"
+    "build:prod": "npm run webpack -- --env.mode production",
+    "test": "mocha"
   },
   "author": "Sergey Fayman <sergfa@gmail.com>",
   "license": "MIT",
@@ -24,7 +25,12 @@
     "webpack-dev-server": "^3.1.14",
     "webpack-merge": "^4.2.1"
   },
-  "keywords": ["script", "scripts", "load", "dynamic"],
+  "keywords": [
+    "script",
+    "scripts",
+    "load",
+    "dynamic"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/sergfa/rx-script-loader.git"
